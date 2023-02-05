@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,7 +16,7 @@ class WelcomeController extends AbstractController
         $projectDir = $this->getParameter('kernel.project_dir') . DIRECTORY_SEPARATOR;
         $docVersion = substr(Kernel::VERSION, 0, 3);
 
-        return $this->inertia->render('welcome', [
+        return $this->render('app.html.twig', [
             'version' => $version,
             'projectDir' => $projectDir,
             'docVersion' => $docVersion,
